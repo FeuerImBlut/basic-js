@@ -21,7 +21,10 @@ function renameFiles(names) {
   for (item of names) {
     resultObj[item] = (resultObj[item]) ? resultObj[item] + 1 : 1;
     if (resultObj[item] == 1) {
-      result.push(`${item}`);
+      if (result.includes(item)) {
+        result.push(item + "(1)");
+      }
+      else result.push(`${item}`);
     }
     else {
       result.push(`${item}(${resultObj[item] - 1})`)
